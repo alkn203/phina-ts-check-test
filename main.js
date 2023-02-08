@@ -1,8 +1,9 @@
 "use strict";
-exports.__esModule = true;
 // 型定義ファイルをインポート
-var globalized_1 = require("node_modules/phina.js.d.ts/globalized");
-globalized_1["default"].globalize();
+//import phina from "node_modules/phina.js.d.ts/globalized"
+exports.__esModule = true;
+var phina = require("phina.js.d.ts/globalized");
+phina.globalize();
 // 定数
 var SCREEN_WIDTH = 640; // 画面横サイズ
 var SCREEN_HEIGHT = 960; // 画面縦サイズ
@@ -18,7 +19,7 @@ var ASSETS = {
     }
 };
 // メインシーン
-globalized_1["default"].define('MainScene', {
+phina.define('MainScene', {
     superClass: 'DisplayScene',
     // コンストラクタ
     init: function () {
@@ -43,6 +44,7 @@ globalized_1["default"].define('MainScene', {
             // 番号
             var num = i + 1;
             // ピース作成
+            // @ts-ignore
             var piece = Piece(num).addChildTo(this.pieceGroup);
             // Gridを利用して配置
             piece.x = this.grid.span(sx) + PIECE_OFFSET;
@@ -105,7 +107,7 @@ globalized_1["default"].define('MainScene', {
     }
 });
 // ピースクラス
-globalized_1["default"].define('Piece', {
+phina.define('Piece', {
     // Spriteを継承
     superClass: 'Sprite',
     // コンストラクタ
@@ -121,7 +123,7 @@ globalized_1["default"].define('Piece', {
     }
 });
 // メイン
-globalized_1["default"].main(function () {
+phina.main(function () {
     var app = GameApp({
         startLabel: 'main',
         // アセット読み込み

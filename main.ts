@@ -1,5 +1,7 @@
 // 型定義ファイルをインポート
-import phina from "node_modules/phina.js.d.ts/globalized"
+//import phina from "node_modules/phina.js.d.ts/globalized"
+
+import phina = require("phina.js.d.ts/globalized");
 
 phina.globalize();
 // 定数
@@ -34,13 +36,14 @@ phina.define('MainScene', {
   },
   // ピース配置関数
   createPiece: function () {
-    PIECE_NUM.times(function(i) {
+    PIECE_NUM.times(function(i: number) {
       // グリッド配置用のインデックス値算出
       const sx = i % PIECE_NUM_X;
       const sy = Math.floor(i / PIECE_NUM_X);
       // 番号
       const num = i + 1;
       // ピース作成
+      // @ts-ignore
       const piece = Piece(num).addChildTo(this.pieceGroup);
       // Gridを利用して配置
       piece.x = this.grid.span(sx) + PIECE_OFFSET;
@@ -96,7 +99,7 @@ phina.define('MainScene', {
     }
   },
   // 座標値からインデックス値へ変換
-  coordToIndex: function (vec) {
+  coordToIndex: function (vec: Vector2) {
     const x = Math.floor(vec.x / PIECE_SIZE);
     const y = Math.floor(vec.y / PIECE_SIZE);
     return Vector2(x, y);
@@ -107,7 +110,7 @@ phina.define('Piece', {
   // Spriteを継承
   superClass: 'Sprite',
   // コンストラクタ
-  init: function (num) {
+  init: function (num: number) {
     // 親クラス初期化
     this.superInit('pieces', PIECE_SIZE, PIECE_SIZE);
     // 数字
