@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "phina.js.d.ts": "github:negiwine/phina.js.d.ts",
+    "typescript": "^4.9.5"
+  },
+  "name": "phina-ts-check-test",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkn203/phina-ts-check-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alkn203/phina-ts-check-test/issues"
+  },
+  "homepage": "https://github.com/alkn203/phina-ts-check-test#readme"
+}
